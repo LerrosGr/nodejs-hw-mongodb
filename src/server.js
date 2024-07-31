@@ -38,6 +38,7 @@ export function setupServer() {
     try {
       const { contactId } = req.params;
       const contact = await getContactById(contactId);
+      console.log(contact);
 
       if (!contact) {
         return res.status(404).json({
