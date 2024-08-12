@@ -55,7 +55,7 @@ async function changeContactController(req, res, next) {
   const result = await changeContact(contactId, contact);
 
   if (result === null) {
-    next(createHttpError(404, 'Student not found'));
+    next(createHttpError(404, 'Contact not found'));
     return;
   }
   console.log(result);
