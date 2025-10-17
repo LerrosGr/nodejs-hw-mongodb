@@ -35,6 +35,10 @@ export const createContactSchema = Joi.object({
       'any.only': 'contactType must be one of: work, home, personal',
       'any.required': 'contactType is required',
     }),
+  photo: Joi.string().messages({
+    'string.base': 'Photo should be a string',
+    'string.empty': 'Photo cannot be empty',
+  }),
 });
 
 export const updateContactSchema = Joi.object({
@@ -64,8 +68,12 @@ export const updateContactSchema = Joi.object({
     'string.base': 'contactType should be a string',
     'any.only': 'contactType must be one of: work, home, personal',
   }),
-})
-  .min(1)
-  .messages({
-    'object.min': 'At least one field must be provided for update',
-  });
+  photo: Joi.string().messages({
+    'string.base': 'Photo should be a string',
+    'string.empty': 'Photo cannot be empty',
+  }),
+});
+// .min(1)
+// .messages({
+//   'object.min': 'At least one field must be provided for update',
+// });
